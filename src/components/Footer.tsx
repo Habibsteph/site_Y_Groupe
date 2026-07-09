@@ -42,7 +42,7 @@ export default function Footer() {
             </div>
 
             <p className="mt-6 max-w-sm text-sm leading-7 text-white/60">
-              Studio créatif premium basé à Abidjan, spécialisé en branding,
+              Studio créatif basé à Abidjan, spécialisé en branding,
               production, digital et stratégie.
             </p>
 

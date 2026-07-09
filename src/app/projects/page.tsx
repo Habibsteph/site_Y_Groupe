@@ -276,7 +276,7 @@ function ProjectsContent() {
                       )}
 
                       <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-amber-300 transition-all duration-300 group-hover:gap-3 group-hover:text-amber-200">
-                        <span>Voir l’étude de cas</span>
+                        <span>Voir le projet</span>
                         <span className="transition-transform duration-300 group-hover:translate-x-1">
                           →
                         </span>

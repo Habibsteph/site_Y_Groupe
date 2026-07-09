@@ -239,7 +239,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-full bg-amber-400 px-7 py-4 text-sm font-bold text-black hover:bg-amber-300"
               >
-                Démarrer un projet
+                Demander un devis
               </Link>
             </div>
           </div>

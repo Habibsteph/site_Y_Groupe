@@ -44,7 +44,7 @@ export default async function HomePage() {
         "Sites web, expériences interactives et solutions digitales orientées performance.",
     },
     {
-      title: "Stratégie",
+      title: "Stratégie et Conseils",
       icon: "/icons/strategie.png",
       description:
         "Positionnement, storytelling et accompagnement créatif pour faire grandir les marques.",
@@ -178,11 +178,7 @@ try {
                   <span className="text-amber-400">pour captiver</span>.
                 </h1>
 
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
-                  Y Groupe accompagne les marques, événements et institutions
-                  avec une approche mêlant stratégie, création et exécution
-                  digitale.
-                </p>
+                
 
                 <div className="mt-10 flex flex-wrap gap-4">
                   <a
@@ -196,7 +192,7 @@ try {
                     href="#contact"
                     className="glow-hover rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-amber-400 hover:text-amber-300"
                   >
-                    Démarrer un projet
+                    Demander un devis
                   </a>
                 </div>
               </div>

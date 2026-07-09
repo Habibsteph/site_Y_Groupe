@@ -33,7 +33,7 @@ const services = [
     slug: "strategie",
     icon: "/icons/strategie.png",
     description:
-      "Positionnement, storytelling et accompagnement créatif pour faire grandir les marques.",
+      "Positionnement, stratégie de contenu, storytelling et accompagnement créatif pour faire grandir les marques.",
   },
 ];
 
