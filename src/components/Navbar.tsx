@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { label: "Accueil", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Projets", href: "/projects" },
+  { label: "Réalisations", href: "/projects" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -65,7 +65,7 @@ export default function Navbar() {
             href="/contact"
             className="hidden rounded-full border border-amber-400/40 px-5 py-2.5 text-sm font-semibold text-amber-300 transition hover:bg-amber-400 hover:text-black md:inline-flex"
           >
-            Démarrer un projet
+            Demander un devis
           </Link>
 
           <button

@@ -74,7 +74,7 @@ export default function Footer() {
                   href="/projects"
                   className="transition hover:text-amber-400"
                 >
-                  Projets
+                  Réalisations
                 </Link>
               </li>
               <li>
@@ -101,7 +101,7 @@ export default function Footer() {
                   href="tel:+2250702921625"
                   className="transition hover:text-amber-400"
                 >
-                  +225 07 02 92 16 25
+                  +225 07 09 66 89 65  /  07 02 92 16 25
                 </a>
               </li>
               <li>
@@ -109,7 +109,7 @@ export default function Footer() {
                   href="mailto:contact@y-groupe.com"
                   className="transition hover:text-amber-400"
                 >
-                  contact@y-groupe.com
+                  contact@ygroupe.com
                 </a>
               </li>
             </ul>

@@ -29,13 +29,13 @@ export default async function HomePage() {
       title: "Graphisme",
       icon: "/icons/graphisme.png",
       description:
-        "Identités visuelles, direction artistique et systèmes de marque conçus pour durer.",
+        "Conception et réalisation d'identités visuelles, Branding, UX/UI design",
     },
     {
       title: "Production",
       icon: "/icons/production.png",
       description:
-        "Photo, vidéo, motion design et contenus visuels pensés pour amplifier votre impact.",
+        "Spot video, motion design, Captation photo et vidéo, Animation 2D/3D.",
     },
     {
       title: "Digital",
@@ -44,24 +44,27 @@ export default async function HomePage() {
         "Sites web, expériences interactives et solutions digitales orientées performance.",
     },
     {
-      title: "Stratégie et Conseils",
+      title: "Stratégie et Conseil",
       icon: "/icons/strategie.png",
       description:
-        "Positionnement, storytelling et accompagnement créatif pour faire grandir les marques.",
+        "Stratégie marketing,Stratégie de communication 360, Analyse du marché, Positionnement.",
     },
   ];
 
   const trustedLogos: TrustedLogo[] = [
+
+    {
+      name: "Key agency",
+      src: "/logos/key_agency.png",
+      className: "max-h-9 sm:max-h-10 max-w-[145px] sm:max-w-[165px]",
+    },
+
     {
       name: "Infinix",
       src: "/logos/infinix.png",
       className: "max-h-9 sm:max-h-10 max-w-[150px] sm:max-w-[170px]",
     },
-    {
-      name: "Radisson Blu",
-      src: "/logos/radisson.png",
-      className: "max-h-9 sm:max-h-10 max-w-[145px] sm:max-w-[165px]",
-    },
+    
     {
       name: "Heineken",
       src: "/logos/heineken.png",
@@ -73,8 +76,8 @@ export default async function HomePage() {
       className: "max-h-24 sm:max-h-28 max-w-[110px] sm:max-w-[120px]",
     },
     {
-      name: "BK Production",
-      src: "/logos/bk-production.png",
+      name: "Ligue 1",
+      src: "/logos/Ligue_1.png",
       className: "max-h-24 sm:max-h-28 max-w-[110px] sm:max-w-[120px]",
     },
     {
@@ -83,23 +86,24 @@ export default async function HomePage() {
       className: "max-h-12 sm:max-h-14 max-w-[150px] sm:max-w-[170px]",
     },
     {
-      name: "Widgunz",
-      src: "/logos/widgunz.png",
-      className: "max-h-9 sm:max-h-10 max-w-[150px] sm:max-w-[170px]",
+      name: "Martini",
+      src: "/logos/martini.png",
+      className: "max-h-15 sm:max-h-14 max-w-[135px] sm:max-w-[170px]",
     },
     {
-      name: "<Dydy-yeman>",
-      src: "/logos/didi-yeman.png",
-      className: "max-h-12 sm:max-h-14 max-w-[150px] sm:max-w-[170px]",
+      name: "laurent-perrier",
+      src: "/logos/Laurent_perrier.png",
+      className: "max-h-12 sm:max-h-18 max-w-[250px] sm:max-w-[200px]",
     },
+    
     {
-      name: "Tripa",
-      src: "/logos/tripa.png",
+      name: "Desperados",
+      src: "/logos/Desperados.png",
       className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
     },
     {
-      name: "Young-ambitious",
-      src: "/logos/young-ambitious.png",
+      name: "Stella",
+      src: "/logos/Stella.png",
       className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
     },
     {
@@ -113,8 +117,8 @@ export default async function HomePage() {
       className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
     },
     {
-      name: "Felah",
-      src: "/logos/felah.png",
+      name: "Radisson",
+      src: "/logos/radisson.png",
       className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
     },
     {
@@ -123,15 +127,16 @@ export default async function HomePage() {
       className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
     },
     {
-      name: "KIJ",
-      src: "/logos/kij.png",
-      className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
+      name: "Widgunz",
+      src: "/logos/widgunz.png",
+      className: "max-h-9 sm:max-h-10 max-w-[150px] sm:max-w-[170px]",
     },
     {
-      name: "La-nuit-blanche",
-      src: "/logos/la-nuit-blanche.png",
-      className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
+      name: "<Dydy-yeman>",
+      src: "/logos/didi-yeman.png",
+      className: "max-h-12 sm:max-h-14 max-w-[150px] sm:max-w-[170px]",
     },
+    
   ];
 
   let homepageProjects: HomeProject[] = [];
@@ -206,7 +211,8 @@ try {
             <Reveal>
               <>
                 <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-                  Bien plus qu’un simple studio de création
+                  
+                  <span className="text-amber-400">Bien plus qu’un simple studio de création</span> 
                 </h2>
                 <p className="mx-auto mt-8 max-w-4xl text-lg leading-9 text-white/70">
                   Nous sommes un studio créatif émergent situé à Abidjan. Nous
@@ -225,7 +231,7 @@ try {
           <Reveal>
             <div className="mb-16 text-center">
               <h2 className="mx-auto max-w-2xl text-4xl font-black tracking-tight sm:text-5xl">
-                Nous sommes <span className="text-amber-400">experts</span> en :
+                <span className="text-amber-400">Nous sommes experts en :</span> 
               </h2>
             </div>
           </Reveal>
@@ -263,7 +269,8 @@ try {
             <Reveal>
               <div className="text-center">
                 <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-                  C&apos;est pourquoi ils nous ont fait confiance
+                  <span className="text-amber-400">C&apos;est pourquoi ils nous ont fait confiance</span> 
+                  
                 </h2>
               </div>
             </Reveal>
