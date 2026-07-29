@@ -106,7 +106,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contact@y-groupe.com"
+                  href="mailto:contact@ygroupecaptiver.com"
                   className="transition hover:text-amber-400"
                 >
                   contact@ygroupe.com
