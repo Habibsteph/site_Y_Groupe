@@ -1,13 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resendApiKey = process.env.RESEND_API_KEY;
-
-if (!resendApiKey) {
-  throw new Error("La variable RESEND_API_KEY est manquante.");
-}
-
-const resend = new Resend(resendApiKey);
 
 function escapeHtml(value: string): string {
   return value
@@ -20,6 +13,31 @@ function escapeHtml(value: string): string {
 
 export async function POST(req: Request) {
   try {
+    const resendApiKey = process.env.RESEND_API_KEY;
+    const contactToEmail = process.env.CONTACT_TO_EMAIL;
+
+    if (!resendApiKey) {
+      console.error("RESEND_API_KEY est manquante.");
+
+      return NextResponse.json(
+        {
+          error: "Le service de contact est temporairement indisponible.",
+        },
+        { status: 500 }
+      );
+    }
+
+    if (!contactToEmail) {
+      console.error("CONTACT_TO_EMAIL est manquant.");
+
+      return NextResponse.json(
+        {
+          error: "Le service de contact est temporairement indisponible.",
+        },
+        { status: 500 }
+      );
+    }
+
     const body = await req.json();
 
     const name =
@@ -40,7 +58,9 @@ export async function POST(req: Request) {
 
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "Merci de remplir les champs obligatoires." },
+        {
+          error: "Merci de remplir les champs obligatoires.",
+        },
         { status: 400 }
       );
     }
@@ -52,7 +72,9 @@ export async function POST(req: Request) {
       message.length > 5000
     ) {
       return NextResponse.json(
-        { error: "Un ou plusieurs champs dépassent la longueur autorisée." },
+        {
+          error: "Un ou plusieurs champs dépassent la longueur autorisée.",
+        },
         { status: 400 }
       );
     }
@@ -61,19 +83,10 @@ export async function POST(req: Request) {
 
     if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { error: "Adresse email invalide." },
+        {
+          error: "Adresse email invalide.",
+        },
         { status: 400 }
-      );
-    }
-
-    const contactToEmail = process.env.CONTACT_TO_EMAIL;
-
-    if (!contactToEmail) {
-      console.error("CONTACT_TO_EMAIL est manquant.");
-
-      return NextResponse.json(
-        { error: "Le service de contact est temporairement indisponible." },
-        { status: 500 }
       );
     }
 
@@ -81,6 +94,8 @@ export async function POST(req: Request) {
     const safeCompany = escapeHtml(company);
     const safeEmail = escapeHtml(email);
     const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
+
+    const resend = new Resend(resendApiKey);
 
     const { data, error } = await resend.emails.send({
       from: "Y Groupe <contact@ygroupecaptiver.com>",
@@ -98,9 +113,25 @@ export async function POST(req: Request) {
         message,
       ].join("\n"),
       html: `
-        <div style="margin:0;padding:24px;background:#f4f4f4;font-family:Arial,sans-serif;color:#111111;">
-          <div style="max-width:640px;margin:0 auto;background:#ffffff;border-radius:12px;padding:32px;">
-            <h2 style="margin:0 0 24px;">
+        <div
+          style="
+            margin: 0;
+            padding: 24px;
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+            color: #111111;
+          "
+        >
+          <div
+            style="
+              max-width: 640px;
+              margin: 0 auto;
+              background: #ffffff;
+              border-radius: 12px;
+              padding: 32px;
+            "
+          >
+            <h2 style="margin: 0 0 24px;">
               Nouveau message depuis le site Y Groupe
             </h2>
 
@@ -121,9 +152,17 @@ export async function POST(req: Request) {
               </a>
             </p>
 
-            <div style="margin-top:24px;padding:20px;background:#f7f7f7;border-radius:8px;">
+            <div
+              style="
+                margin-top: 24px;
+                padding: 20px;
+                background: #f7f7f7;
+                border-radius: 8px;
+              "
+            >
               <strong>Message :</strong>
-              <p style="margin-bottom:0;">
+
+              <p style="margin-bottom: 0;">
                 ${safeMessage}
               </p>
             </div>
@@ -136,19 +175,28 @@ export async function POST(req: Request) {
       console.error("Erreur Resend :", error);
 
       return NextResponse.json(
-        { error: "Impossible d’envoyer le message pour le moment." },
+        {
+          error: "Impossible d’envoyer le message pour le moment.",
+        },
         { status: 500 }
       );
     }
 
     console.log("Message envoyé avec succès :", data?.id);
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json(
+      {
+        success: true,
+      },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Erreur API Contact :", error);
 
     return NextResponse.json(
-      { error: "Une erreur est survenue." },
+      {
+        error: "Une erreur est survenue.",
+      },
       { status: 500 }
     );
   }
