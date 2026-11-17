@@ -66,11 +66,6 @@ export default async function HomePage() {
     },
     
     {
-      name: "Heineken",
-      src: "/logos/heineken.png",
-      className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
-    },
-    {
       name: "SAF",
       src: "/logos/saf.png",
       className: "max-h-24 sm:max-h-28 max-w-[110px] sm:max-w-[120px]",
@@ -86,21 +81,11 @@ export default async function HomePage() {
       className: "max-h-12 sm:max-h-14 max-w-[150px] sm:max-w-[170px]",
     },
     {
-      name: "Martini",
-      src: "/logos/martini.png",
-      className: "max-h-15 sm:max-h-14 max-w-[135px] sm:max-w-[170px]",
-    },
-    {
       name: "laurent-perrier",
       src: "/logos/Laurent_perrier.png",
       className: "max-h-12 sm:max-h-18 max-w-[250px] sm:max-w-[200px]",
     },
     
-    {
-      name: "Desperados",
-      src: "/logos/Desperados.png",
-      className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
-    },
     {
       name: "Stella",
       src: "/logos/stella.png",
