@@ -7,8 +7,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import { client } from "@/sanity/lib/client";
-import { PROJECTS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 type ProjectPole =
@@ -65,6 +63,7 @@ function ProjectsContent() {
 
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
 
   const serviceParam = searchParams.get("service");
   const initialFilter =
@@ -78,7 +77,9 @@ function ProjectsContent() {
   useEffect(() => {
     const loadProjects = async () => {
       try {
-        const data = await client.fetch<Project[]>(PROJECTS_QUERY);
+        const response = await fetch("/api/projects");
+        if (!response.ok) throw new Error(`Projects request failed: ${response.status}`);
+        const data: Project[] = await response.json();
 
         const normalizedProjects = (data ?? []).map((project) => ({
           ...project,
@@ -88,6 +89,7 @@ function ProjectsContent() {
 
         setProjects(normalizedProjects);
       } catch (error) {
+        setLoadError(true);
         console.error("Erreur lors du chargement des projets Sanity :", error);
       } finally {
         setLoading(false);
@@ -175,6 +177,7 @@ function ProjectsContent() {
             <p className="text-sm text-white/45">
               {loading
                 ? "Chargement..."
+                : loadError ? "Chargement indisponible"
                 : `${filteredProjects.length} projet${
                     filteredProjects.length > 1 ? "s" : ""
                   } affiché${filteredProjects.length > 1 ? "s" : ""}`}
@@ -195,6 +198,13 @@ function ProjectsContent() {
               </p>
             </div>
           </Reveal>
+        ) : loadError ? (
+          <div role="alert" className="rounded-[2rem] border border-white/10 bg-white/[0.02] px-6 py-14 text-center">
+            <p className="text-lg font-semibold text-white">Les réalisations n’ont pas pu être chargées.</p>
+            <button type="button" onClick={() => window.location.reload()} className="mt-5 font-semibold text-amber-300">
+              Réessayer
+            </button>
+          </div>
         ) : filteredProjects.length > 0 ? (
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {filteredProjects.map((project, index) => (
