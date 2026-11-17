@@ -92,11 +92,6 @@ export default async function HomePage() {
       className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
     },
     {
-      name: "gaïa",
-      src: "/logos/gaïa.png",
-      className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
-    },
-    {
       name: "lias-princess",
       src: "/logos/lia's-princess.png",
       className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
