@@ -72,7 +72,7 @@ export default async function HomePage() {
     },
     {
       name: "Ligue 1",
-      src: "/logos/ligue_1.png",
+      src: "/logos/Ligue_1.PNG",
       className: "max-h-24 sm:max-h-28 max-w-[110px] sm:max-w-[120px]",
     },
     {
@@ -88,7 +88,7 @@ export default async function HomePage() {
     
     {
       name: "Stella",
-      src: "/logos/stella.png",
+      src: "/logos/Stella.PNG",
       className: "max-h-12 sm:max-h-14 max-w-[135px] sm:max-w-[150px]",
     },
     {
